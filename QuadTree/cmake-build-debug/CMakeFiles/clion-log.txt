@@ -1,4 +1,4 @@
-"O:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=O:/Program Files/JetBrains/CLion 2022.2.4/bin/ninja/win/ninja.exe" -G Ninja -S "C:\Users\Thoma\Documents\UA\Semester 1\Data Structures\Labo\Labo 7\QuadTree" -B "C:\Users\Thoma\Documents\UA\Semester 1\Data Structures\Labo\Labo 7\QuadTree\cmake-build-debug"
+"O:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=O:/Program Files/JetBrains/CLion 2022.2.4/bin/ninja/win/ninja.exe" -G Ninja -S "C:\Users\Thoma\Documents\UA\Semester 1\Data Structures\Labo\Labo 7\DataStructures\QuadTree" -B "C:\Users\Thoma\Documents\UA\Semester 1\Data Structures\Labo\Labo 7\DataStructures\QuadTree\cmake-build-debug"
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/QuadTree/cmake-build-debug
+-- Build files have been written to: C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/DataStructures/QuadTree/cmake-build-debug

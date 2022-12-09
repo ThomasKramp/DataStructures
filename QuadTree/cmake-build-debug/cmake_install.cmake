@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/QuadTree
+# Install script for directory: C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/DataStructures/QuadTree
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/QuadTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/DataStructures/QuadTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
