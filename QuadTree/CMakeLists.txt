@@ -23,7 +23,7 @@ link_directories(${SDL2_LIB_DIR})
 # TestSuite
 add_executable(TestSuite
         test/main.cpp
-        test/axis_aligned_bounding_box.cpp)
+        test/axis_aligned_bounding_box.cpp test/quadtree.cpp)
 target_include_directories(TestSuite PUBLIC include/)
 
 target_link_libraries(TestSuite PRIVATE QuadLib)

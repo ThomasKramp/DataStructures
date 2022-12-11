@@ -1,15 +1,16 @@
 # ninja log v5
 777	915	6923038002419033	libQuadLib.a	724f1ab1e6e772b3
 12	528	6922961132183504	CMakeFiles/QuadLib.dir/src/axis_aligned_bounding_box.cpp.obj	1f22c36ca6e98881
-7	13605	6923038265495939	CMakeFiles/TestSuite.dir/test/main.cpp.obj	cbfd552baf01d2a8
+7	16149	6923052618453768	CMakeFiles/TestSuite.dir/test/main.cpp.obj	cbfd552baf01d2a8
 32	1378	6923038007029029	CMakeFiles/TestSuite.dir/test/axis_aligned_bounding_box.cpp.obj	225a43d8380733cf
 19	588	6922961132793445	CMakeFiles/QuadLib.dir/src/quadtree.cpp.obj	6c879ffd271d14e2
-1	299	6923051141614688	build.ninja	93c80b88c9019bde
-929	27020	6922773985164713	TestSuite.exe	1bcf31c43e6cc96b
+1	299	6924967640085735	build.ninja	93c80b88c9019bde
+16150	46970	6923052926968256	TestSuite.exe	102f4f52de77580
 27	202	6922961128883454	CMakeFiles/QuadLib.dir/src/quadtree_iterator.cpp.obj	e0922f8eba44865
 44	208	6922961128883454	CMakeFiles/TestSuite.dir/src/quadtree_iterator.cpp.obj	22c4e0329bc1af1e
 52	358	6923037996749070	CMakeFiles/QuadLib.dir/src/quadtree/quadtree_iterator.cpp.obj	ecdb2168b95861c7
 21	662	6923037999819072	CMakeFiles/QuadLib.dir/src/quadtree/axis_aligned_bounding_box.cpp.obj	1ce594833cdbd1ca
 8	776	6923038001009085	CMakeFiles/QuadLib.dir/src/quadtree/quadtree.cpp.obj	b4b62b8f5773038
-7	16149	6923052618453768	CMakeFiles/TestSuite.dir/test/main.cpp.obj	cbfd552baf01d2a8
-16150	46970	6923052926968256	TestSuite.exe	102f4f52de77580
+10	1333	6924976394834267	CMakeFiles/TestSuite.dir/test/quadtree.cpp.obj	e407dc3817b6a5a5
+12	1236	6924976920033937	CMakeFiles/TestSuite.dir/test/quadtree.cpp.obj	e407dc3817b6a5a5
+8	926	6924980640283399	CMakeFiles/TestSuite.dir/test/quadtree.cpp.obj	e407dc3817b6a5a5

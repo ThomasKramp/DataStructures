@@ -92,7 +92,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -147,7 +148,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -163,6 +165,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "test/axis_aligned_bounding_box.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "test/quadtree.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
