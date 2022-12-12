@@ -48,24 +48,24 @@ AxisAlignedBoundingBox::operator std::string() const {
 }
 
 bool checkIfInBetween(const double value, const double lowerBound, const double upperBound) {
-    return (value >= lowerBound) && (value <= lowerBound + upperBound);
+    return (value >= lowerBound) && (value <= upperBound);
 }
 
 bool checkIfBoxContainsCorner(const AxisAlignedBoundingBox& one, const AxisAlignedBoundingBox& two) {
     // Check if box 1 has a point in box 2
-    bool oneXIsInTwoX = checkIfInBetween(one.x, two.x, two.width)       // Check if box 1 x is in box 2
-            || checkIfInBetween(one.x + one.width, two.x, two.width);   // Check if box 1 x + box 1 width is in box 2
-    bool oneYIsInTwoY = checkIfInBetween(one.y, two.y, two.height)      // Check if box 1 y is in box 2
-            || checkIfInBetween(one.y + two.height, two.y, two.height); // Check if box 1 y + box 1 height is in box 2
+    bool oneXIsInTwoX = checkIfInBetween(one.x, two.x, two.x + two.width)       // Check if box 1 x is in box 2
+            || checkIfInBetween(one.x + one.width, two.x, two.x + two.width);   // Check if box 1 x + box 1 width is in box 2
+    bool oneYIsInTwoY = checkIfInBetween(one.y, two.y, two.y + two.height)      // Check if box 1 y is in box 2
+            || checkIfInBetween(one.y + one.height, two.y, two.y + two.height); // Check if box 1 y + box 1 height is in box 2
     return oneXIsInTwoX && oneYIsInTwoY;
 }
 
 bool checkIfBoxesOverlap(const AxisAlignedBoundingBox& one, const AxisAlignedBoundingBox& two) {
     // Check if box 1 overlaps box 2
-    bool oneXIsInTwoX = checkIfInBetween(one.x, two.x, two.width)       // Check if box 1 x is in box 2
-            || checkIfInBetween(one.x + one.width, two.x, two.width);   // Check if box 1 x + box 1 width is in box 2
-    bool twoYIsInOneY = checkIfInBetween(two.y, one.y, one.height)      // Check if box 2 y is in box 1
-            || checkIfInBetween(two.y + one.height, one.y, one.height); // Check if box 2 y + box 2 height is in box 1
+    bool oneXIsInTwoX = checkIfInBetween(one.x, two.x, two.x + two.width)       // Check if box 1 x is in box 2
+            || checkIfInBetween(one.x + one.width, two.x, two.x + two.width);   // Check if box 1 x + box 1 width is in box 2
+    bool twoYIsInOneY = checkIfInBetween(two.y, one.y, one.y + one.height)      // Check if box 2 y is in box 1
+            || checkIfInBetween(two.y + two.height, one.y, one.y + one.height); // Check if box 2 y + box 2 height is in box 1
     return oneXIsInTwoX && twoYIsInOneY;
 }
 
@@ -77,10 +77,10 @@ bool collides(const AxisAlignedBoundingBox &one, const AxisAlignedBoundingBox &t
     bool oneIsInTwo = checkIfBoxContainsCorner(one, two);
     bool twoIsInOne = checkIfBoxContainsCorner(two, one);
 
-    bool oneOverlapsTwo = checkIfBoxesOverlap(one, two);            // X1 <= X2 && X2 + Width2 <= X1 + Width1
-                                                                    // Y2 <= Y1 && Y1 + Height1 <= Y2 + Height2
-    bool twoOverlapsOne = checkIfBoxesOverlap(two, one);   // X2 <= X1 && X1 + Width1 <= X2 + Width2
-                                                                    // Y1 <= Y2 && Y2 + Height2 <= Y1 + Height1
+    bool oneOverlapsTwo = checkIfBoxesOverlap(one, two);    // X1 <= X2 && X2 + Width2 <= X1 + Width1
+                                                            // Y2 <= Y1 && Y1 + Height1 <= Y2 + Height2
+    bool twoOverlapsOne = checkIfBoxesOverlap(two, one);    // X2 <= X1 && X1 + Width1 <= X2 + Width2
+                                                            // Y1 <= Y2 && Y2 + Height2 <= Y1 + Height1
 
     return (oneHasDimension && twoHasDimension) && (oneIsInTwo || twoIsInOne || oneOverlapsTwo || twoOverlapsOne);
 }

@@ -16,28 +16,22 @@
 template <typename MetadataType>
 class Quadtree {
 private:
-    const AxisAlignedBoundingBox bounds;
+    AxisAlignedBoundingBox bounds;
     unsigned int region_capacity;
-    std::vector<AxisAlignedBoundingBox> abBoxes = std::vector<AxisAlignedBoundingBox>();
+    std::vector<std::pair<AxisAlignedBoundingBox, MetadataType>> abBoxes = std::vector<std::pair<AxisAlignedBoundingBox, MetadataType>>();
     // https://stackoverflow.com/a/3571746
-    // https://stackoverflow.com/a/29664695
-    Quadtree<MetadataType> *subZones[4] // problem is solved bij adding #include "quadtree/quadtree.h" to this file and making it a pointer
-
-    // https://github.com/alwex/QuadTree/blob/master/src/main/java/com/alwex/tree/QuadTree.java
-    // Create an enum that specifies the sub-zones
-    const uint8_t REGION_SELF = -1;
-    const uint8_t REGION_NW = 0;
-    const uint8_t REGION_NE = 1;
-    const uint8_t REGION_SW = 2;
-    const uint8_t REGION_SE = 3;
+    std::vector<Quadtree<MetadataType>> subZones = { };
 
     void createSubZones();
+    void insertToSubZone(const AxisAlignedBoundingBox aabbBox, const MetadataType &meta);
 
 public:
     // Constructor
     // `bounds` specifies the edges of the region that the quadtree covers.
     // `region_capacity` specifies the maximum number of objects in a single region.
     Quadtree(const AxisAlignedBoundingBox& bounds, unsigned int region_capacity);
+    Quadtree<MetadataType>& operator=(Quadtree<MetadataType>&& other);
+    Quadtree(const Quadtree<MetadataType>& other);
 
     // This method inserts the given metadata and AABB into the quadtree.
     void insert(const AxisAlignedBoundingBox& aabb, const MetadataType& meta);
