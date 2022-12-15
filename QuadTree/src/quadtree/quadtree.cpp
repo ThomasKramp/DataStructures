@@ -39,15 +39,16 @@ void Quadtree<MetadataType>::createSubZones() {
 }
 
 template<typename MetadataType>
-void Quadtree<MetadataType>::insertToSubZone(const AxisAlignedBoundingBox aabbBox, const MetadataType &meta) {
+void Quadtree<MetadataType>::insertToSubZone(const AxisAlignedBoundingBox &newBox, const MetadataType &meta) {
     for (auto& zone: subZones) {
-        if (collides(zone.bounds, aabbBox)) {
-            zone.insert(aabbBox, meta);
+        if (collides(zone.bounds, newBox)) {
+            zone.insert(newBox, meta);
         }
     }
 }
 
 // public
+// - constructors
 template<typename MetadataType>
 Quadtree<MetadataType>::Quadtree(const AxisAlignedBoundingBox &bounds, unsigned int region_capacity): bounds(bounds), region_capacity(region_capacity) {};
 
@@ -64,22 +65,54 @@ template<typename MetadataType>
 Quadtree<MetadataType>::Quadtree(const Quadtree<MetadataType> &other): bounds(other.bounds),
 region_capacity(other.region_capacity), abBoxes(other.abBoxes), subZones(other.subZones) { }
 
+// - methods
 template<typename MetadataType>
-void Quadtree<MetadataType>::insert(const AxisAlignedBoundingBox &aabb, const MetadataType &meta) {
+void Quadtree<MetadataType>::insert(const AxisAlignedBoundingBox &newBox, const MetadataType &meta) {
     // TODO: add collision detection
 
-    if (abBoxes.size() < region_capacity && subZones.empty()) {
-        abBoxes.emplace_back(aabb, meta);
+    if (subZones.empty() && abBoxes.size() < region_capacity) {
+        abBoxes.emplace_back(newBox, meta);
     } else {
         if (subZones.empty()) {
             createSubZones();
             for (auto &abBox: abBoxes) { insertToSubZone(abBox.first, abBox.second); }
             abBoxes.clear();
         }
-        insertToSubZone(aabb, meta);
+        insertToSubZone(newBox, meta);
         // in qich square does the box need to be put into
     }
 }
+
+template<typename MetadataType>
+std::unordered_set<std::pair<AxisAlignedBoundingBox, MetadataType>*> Quadtree<MetadataType>
+        ::query_region(const AxisAlignedBoundingBox &container) {
+    std::unordered_set<std::pair<AxisAlignedBoundingBox, MetadataType>*> boxes = std::unordered_set<std::pair<AxisAlignedBoundingBox, MetadataType>*>();
+    if (subZones.empty()) {
+        // If there aren't any sub-zones loop through all boxes
+        for (auto &abBox: abBoxes) {
+            // Add the box if there is a collision
+            if (collides(abBox.first, container)) {
+                boxes.insert(&abBox);
+            }
+        }
+    } else {
+        // If there are sub-zones loop through all sub-zones
+        for (auto &zone: subZones) {
+            // Look into sub-zone if there is a collision
+            if (collides(zone.getBounds(), container)) {
+                // Get all colliding boxes in sub-zone
+                auto zone_boxes = zone.query_region(container);
+                // Add all the colliding boxes
+                for (auto &zone_box: zone_boxes) { boxes.insert(zone_box); }
+            }
+        }
+    }
+    return boxes;
+}
+
+// - getters
+template<typename MetadataType>
+AxisAlignedBoundingBox Quadtree<MetadataType>::getBounds() { return this->bounds; }
 
 template<typename MetadataType>
 auto Quadtree<MetadataType>::begin() {
@@ -94,14 +127,20 @@ auto Quadtree<MetadataType>::end() {
 
 // private
 template void Quadtree<std::string>::createSubZones();
-template void Quadtree<std::string>::insertToSubZone(const AxisAlignedBoundingBox aabbBox, const std::string &meta);
+template void Quadtree<std::string>::insertToSubZone(const AxisAlignedBoundingBox &newBox, const std::string &meta);
 
 // public
+// - constructors
 template Quadtree<std::string>::Quadtree(const AxisAlignedBoundingBox &bounds, unsigned int region_capacity);
 template Quadtree<std::string> &Quadtree<std::string>::operator=(Quadtree<std::string> &&other);
 template Quadtree<std::string>::Quadtree(const Quadtree<std::string> &other);
 
-template void Quadtree<std::string>::insert(const AxisAlignedBoundingBox &aabb, const std::string &meta);
+// - methods
+template void Quadtree<std::string>::insert(const AxisAlignedBoundingBox &newBox, const std::string &meta);
+template std::unordered_set<std::pair<AxisAlignedBoundingBox, std::string>*> Quadtree<std::string>
+        ::query_region(const AxisAlignedBoundingBox &container);
 
+// - getters
+template AxisAlignedBoundingBox Quadtree<std::string>::getBounds();
 template auto Quadtree<std::string>::begin();
 template auto Quadtree<std::string>::end();
