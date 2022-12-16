@@ -76,3 +76,20 @@ TEST_CASE("0 Corner Collision (Overlap)" "[collision][overlap]") {
     AxisAlignedBoundingBox externalBox = AxisAlignedBoundingBox(3, 0, 4, 10);
     CHECK(collides(baseBox, externalBox));
 }
+
+TEST_CASE("Compare 2 aabb's (same)"  "[operator] [comparison]") {
+    AxisAlignedBoundingBox box1 = AxisAlignedBoundingBox(4, 4, 2, 2);
+    AxisAlignedBoundingBox box2 = AxisAlignedBoundingBox(4, 4, 2, 2);
+    CHECK(box1 == box2);
+}
+
+TEST_CASE("Compare 2 aabb's (different)"  "[operator] [comparison]") {
+    AxisAlignedBoundingBox box1 = AxisAlignedBoundingBox(4, 4, 2, 2);
+    AxisAlignedBoundingBox box2 = AxisAlignedBoundingBox(2, 2, 4, 4);
+    CHECK_FALSE(box1 == box2);
+}
+
+// TODO: add toString test case
+TEST_CASE("Box to string"  "[operator] [toString]") {
+
+}

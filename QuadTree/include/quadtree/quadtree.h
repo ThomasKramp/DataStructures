@@ -13,35 +13,35 @@
 // This class is our actual quadtree
 // It stores AABB’s together with some metadata
 // Space Complexity: O(N)
-template <typename MetadataType>
+template <typename Metadata>
 class Quadtree {
 private:
     AxisAlignedBoundingBox bounds;
     unsigned int region_capacity;
-    std::vector<std::pair<AxisAlignedBoundingBox, MetadataType>> abBoxes = std::vector<std::pair<AxisAlignedBoundingBox, MetadataType>>();
+    std::vector<std::pair<AxisAlignedBoundingBox, Metadata>> abBoxes = std::vector<std::pair<AxisAlignedBoundingBox, Metadata>>();
     // https://stackoverflow.com/a/3571746
-    std::vector<Quadtree<MetadataType>> subZones = { };
+    std::vector<Quadtree<Metadata>> subZones = { };
 
     void createSubZones();
-    void insertToSubZone(const AxisAlignedBoundingBox& newBox, const MetadataType &meta);
+    void insertToSubZone(const AxisAlignedBoundingBox& newBox, const Metadata &meta);
 
 public:
     // Constructor
     // `bounds` specifies the edges of the region that the quadtree covers.
     // `region_capacity` specifies the maximum number of objects in a single region.
     Quadtree(const AxisAlignedBoundingBox& bounds, unsigned int region_capacity);
-    Quadtree<MetadataType>& operator=(Quadtree<MetadataType>&& other);
-    Quadtree(const Quadtree<MetadataType>& other);
+    Quadtree<Metadata>& operator=(Quadtree<Metadata>&& other);
+    Quadtree(const Quadtree<Metadata>& other);
 
     // This method inserts the given metadata and AABB into the quadtree.
-    void insert(const AxisAlignedBoundingBox& newBox, const MetadataType& meta);
+    void insert(const AxisAlignedBoundingBox& newBox, const Metadata& meta);
 
     // This method should return a std::unordered_set of all items inside the given AABB.
     // The given AABB may span multiple square regions of the quadtree.
     // The worst-case time-complexity of this method should be O(log(N)) for a Quadtree with N leaf nodes
     // Your set should contain the AABB and the Metadata of all objects in the given region.
     // https://stackoverflow.com/q/62869571
-    std::unordered_set<std::pair<AxisAlignedBoundingBox, MetadataType>*> query_region(const AxisAlignedBoundingBox& container);
+    std::unordered_set<std::pair<AxisAlignedBoundingBox, Metadata>*> query_region(const AxisAlignedBoundingBox& container);
 
     AxisAlignedBoundingBox getBounds();
 

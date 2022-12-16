@@ -4,8 +4,6 @@
 
 #include "quadtree/axis_aligned_bounding_box.h"
 
-bool checkIfBoxesOverlap(const AxisAlignedBoundingBox &box, const AxisAlignedBoundingBox &box1);
-
 AxisAlignedBoundingBox::AxisAlignedBoundingBox(double &x, double &y, double &width, double &height) {
     if (width < 0) {
         this->x = x + width;
@@ -23,7 +21,6 @@ AxisAlignedBoundingBox::AxisAlignedBoundingBox(double &x, double &y, double &wid
         this->height = height;
     }
 }
-
 AxisAlignedBoundingBox::AxisAlignedBoundingBox(double &&x, double &&y, double &&width, double &&height) {
     if (width < 0) {
         this->x = x + width;
@@ -42,6 +39,10 @@ AxisAlignedBoundingBox::AxisAlignedBoundingBox(double &&x, double &&y, double &&
     }
 }
 
+bool AxisAlignedBoundingBox::operator==(const AxisAlignedBoundingBox &aabb) const {
+    return (this->x == aabb.get_x()) && (this->y == aabb.get_y())
+           && (this->width == aabb.get_width()) && (this->height == aabb.get_height());
+}
 AxisAlignedBoundingBox::operator std::string() const {
     return "x: " + std::to_string(this->x) + " y: " + std::to_string(this->y)
         + " w: " + std::to_string(this->width) + " h: " + std::to_string(this->height);

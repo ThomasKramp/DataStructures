@@ -4,7 +4,9 @@
 
 #include "catch2/catch.hpp"
 #include "quadtree/quadtree.h"
-#include <ctime>
+#include <chrono>
+#include <iomanip>
+#include <iostream>
 
 TEST_CASE("insertion") {
     // Create a quadtree
@@ -22,13 +24,15 @@ TEST_CASE("insertion") {
     // hoe moet je het timen
     // begin & end laten nakijken
 
-    // https://stackoverflow.com/a/39438574
-    clock_t start = clock();
+    // Start Clock
+    auto start = std::chrono::steady_clock::now();
+    // Execute Code
     auto boxes = quadTree.query_region(AxisAlignedBoundingBox(0, 0, 6, 6));
-    clock_t stop = clock();
-    double elapsed = (double) (stop - start) / CLOCKS_PER_SEC;
-    printf("\nTime elapsed: %.5f\n", elapsed);
-    std::printf("");
+    // Stop Clock
+    auto end = std::chrono::steady_clock::now();
+    // Display time
+    std::chrono::duration<double> diff = end - start;
+    std::cout << "Time elapsed: " << std::setprecision(5) << diff.count() << " s\n";
 }
 
 // TODO: Unit test edge cases

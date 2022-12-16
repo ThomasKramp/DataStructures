@@ -31,6 +31,10 @@ public:
     [[nodiscard]] double get_width() const;
     [[nodiscard]] double get_height() const;
 
+    // Operators
+    // Comparison Operator: Compare 2 AxisAlignedBoundingBoxes with each other
+    bool operator==(const AxisAlignedBoundingBox& aabb) const;
+    // Convert object to string
     explicit operator std::string() const;
 };
 
