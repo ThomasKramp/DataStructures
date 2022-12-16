@@ -12,8 +12,7 @@
 		"commands" : 
 		[
 			"add_library",
-			"target_include_directories",
-			"include_directories"
+			"target_include_directories"
 		],
 		"files" : 
 		[
@@ -35,12 +34,6 @@
 				"file" : 0,
 				"line" : 12,
 				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 19,
-				"parent" : 0
 			}
 		]
 	},
@@ -58,10 +51,6 @@
 				{
 					"backtrace" : 2,
 					"path" : "C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/DataStructures/QuadTree/include"
-				},
-				{
-					"backtrace" : 3,
-					"path" : "C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/DataStructures/QuadTree/include/SDL2"
 				}
 			],
 			"language" : "CXX",

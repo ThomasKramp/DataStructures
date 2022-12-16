@@ -14,9 +14,7 @@
 		"commands" : 
 		[
 			"add_executable",
-			"link_directories",
 			"target_link_libraries",
-			"include_directories",
 			"target_include_directories"
 		],
 		"files" : 
@@ -31,7 +29,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 24,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
@@ -43,19 +41,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 29,
-				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 19,
-				"parent" : 0
-			},
-			{
-				"command" : 4,
-				"file" : 0,
-				"line" : 27,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -72,11 +58,7 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
-					"path" : "C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/DataStructures/QuadTree/include/SDL2"
-				},
-				{
-					"backtrace" : 5,
+					"backtrace" : 3,
 					"path" : "C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/DataStructures/QuadTree/include"
 				}
 			],
@@ -100,7 +82,7 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 3,
+			"backtrace" : 2,
 			"id" : "QuadLib::@6890427a1f51a3e7e1df"
 		}
 	],
@@ -119,11 +101,6 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-LC:\\Users\\Thoma\\DOCUME~1\\UA\\SEMEST~1\\DATAST~1\\Labo\\LABO7~1\\DATAST~1\\QuadTree\\lib\\SDL2\\x64",
-				"role" : "libraryPath"
-			},
-			{
-				"backtrace" : 3,
 				"fragment" : "libQuadLib.a",
 				"role" : "libraries"
 			},

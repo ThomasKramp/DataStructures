@@ -39,7 +39,6 @@ public:
     // This method should return a std::unordered_set of all items inside the given AABB.
     // The given AABB may span multiple square regions of the quadtree.
     // The worst-case time-complexity of this method should be O(log(N)) for a Quadtree with N leaf nodes
-    // TODO: You should decide the element type of the std::unordered_set
     // Your set should contain the AABB and the Metadata of all objects in the given region.
     // https://stackoverflow.com/q/62869571
     std::unordered_set<std::pair<AxisAlignedBoundingBox, MetadataType>*> query_region(const AxisAlignedBoundingBox& container);

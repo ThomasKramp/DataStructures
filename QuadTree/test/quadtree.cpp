@@ -4,6 +4,7 @@
 
 #include "catch2/catch.hpp"
 #include "quadtree/quadtree.h"
+#include <ctime>
 
 TEST_CASE("insertion") {
     // Create a quadtree
@@ -16,9 +17,18 @@ TEST_CASE("insertion") {
     quadTree.insert(AxisAlignedBoundingBox(0, 3, 5, 1), "figure4");
     quadTree.insert(AxisAlignedBoundingBox(4, 4, 2, 2), "figure5");
 
-    // 2 problemen Herhaaldelijks toevoegen
+    // repeaded adding (even thought unordered_set shouldn't allow it
     // boxes on the edges get added to zone
     // hoe moet je het timen
+    // begin & end laten nakijken
+
+    // https://stackoverflow.com/a/39438574
+    clock_t start = clock();
     auto boxes = quadTree.query_region(AxisAlignedBoundingBox(0, 0, 6, 6));
+    clock_t stop = clock();
+    double elapsed = (double) (stop - start) / CLOCKS_PER_SEC;
+    printf("\nTime elapsed: %.5f\n", elapsed);
     std::printf("");
 }
+
+// TODO: Unit test edge cases

@@ -83,6 +83,8 @@ void Quadtree<MetadataType>::insert(const AxisAlignedBoundingBox &newBox, const 
     }
 }
 
+// TODO: Make pair vector || Create hash function for AxisAlignedBoundingBox || Create object for pair && Add operator
+//       Remove pointer
 template<typename MetadataType>
 std::unordered_set<std::pair<AxisAlignedBoundingBox, MetadataType>*> Quadtree<MetadataType>
         ::query_region(const AxisAlignedBoundingBox &container) {
@@ -116,12 +118,14 @@ AxisAlignedBoundingBox Quadtree<MetadataType>::getBounds() { return this->bounds
 
 template<typename MetadataType>
 auto Quadtree<MetadataType>::begin() {
-    return nullptr;
+    auto boxes = query_region(this->bounds);
+    return boxes.begin();
 }
 
 template<typename MetadataType>
 auto Quadtree<MetadataType>::end() {
-    return nullptr;
+    auto boxes = query_region(this->bounds);
+    return boxes.end();
 }
 
 
