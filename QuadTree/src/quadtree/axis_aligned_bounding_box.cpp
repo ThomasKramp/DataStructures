@@ -43,6 +43,10 @@ bool AxisAlignedBoundingBox::operator==(const AxisAlignedBoundingBox &aabb) cons
     return (this->x == aabb.get_x()) && (this->y == aabb.get_y())
            && (this->width == aabb.get_width()) && (this->height == aabb.get_height());
 }
+bool AxisAlignedBoundingBox::operator!=(const AxisAlignedBoundingBox &aabb) const {
+    return (this->x != aabb.get_x()) || (this->y != aabb.get_y())
+        || (this->width != aabb.get_width()) || (this->height != aabb.get_height());
+}
 AxisAlignedBoundingBox::operator std::string() const {
     return "x: " + std::to_string(this->x) + " y: " + std::to_string(this->y)
         + " w: " + std::to_string(this->width) + " h: " + std::to_string(this->height);

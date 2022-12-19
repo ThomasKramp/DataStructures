@@ -24,8 +24,17 @@ public:
     // Operators
     // Comparison Operator: Compare 2 MetaBoundingBoxes with each other
     bool operator==(const MetaBoundingBox<Metadata>& metaBox) const;
+    bool operator!=(const MetaBoundingBox<Metadata>& metaBox) const;
     // Convert object to string
     explicit operator std::string() const;
 };
+
+// Hashing
+namespace std { // add to the std library
+    template<typename Metadata>
+    struct hash<MetaBoundingBox<Metadata>>{    // add hashing function
+        std::size_t operator() (const MetaBoundingBox<Metadata>& key) const noexcept;
+    };
+}
 
 #endif //LABO_7_META_BOUNDING_BOX_H

@@ -53,6 +53,22 @@
 			[
 				{
 					"fragment" : "-g"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-Wpedantic"
+				},
+				{
+					"backtrace" : 2,
+					"fragment" : "-Werror"
 				}
 			],
 			"includes" : 

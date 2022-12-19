@@ -6,6 +6,7 @@
 #define LABO_7_QUADTREE_ITERATOR_H
 
 #include <vector>
+#include <unordered_set>
 #include "meta_bounding_box.h"
 
 // TODO: Vraag aan de prof
@@ -15,12 +16,13 @@ class QuadtreeIterator {
 private:
     std::vector<MetaBoundingBox<Metadata>> boxes;
     std::size_t index = 0;
-
-    QuadtreeIterator& operator++ ();
-    QuadtreeIterator operator==(const QuadtreeIterator& qit);
-
 public:
+    QuadtreeIterator(std::unordered_set<MetaBoundingBox<Metadata>> boxes, std::size_t index);
 
+    QuadtreeIterator& operator++();
+    MetaBoundingBox<Metadata>* operator*();
+    bool operator==(const QuadtreeIterator& qit);
+    bool operator!=(const QuadtreeIterator& qit);
 };
 
 

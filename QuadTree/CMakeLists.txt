@@ -23,3 +23,6 @@ add_executable(TestSuite
 target_include_directories(TestSuite PUBLIC include/)
 
 target_link_libraries(TestSuite PRIVATE QuadLib)
+
+# Error check
+target_compile_options(QuadLib PUBLIC -Wall -Wextra -Wpedantic -Werror)

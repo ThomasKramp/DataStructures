@@ -7,8 +7,9 @@
 
 #include <unordered_set>
 #include <vector>
-#include "quadtree/axis_aligned_bounding_box.h"
+#include "quadtree/meta_bounding_box.h"
 #include "quadtree/quadtree.h"
+#include "quadtree/quadtree_iterator.h"
 
 // This class is our actual quadtree
 // It stores AABB’s together with some metadata
@@ -18,7 +19,7 @@ class Quadtree {
 private:
     AxisAlignedBoundingBox bounds;
     unsigned int region_capacity;
-    std::vector<std::pair<AxisAlignedBoundingBox, Metadata>> abBoxes = std::vector<std::pair<AxisAlignedBoundingBox, Metadata>>();
+    std::vector<MetaBoundingBox<Metadata>> abBoxes = std::vector<MetaBoundingBox<Metadata>>();
     // https://stackoverflow.com/a/3571746
     std::vector<Quadtree<Metadata>> subZones = { };
 
@@ -41,19 +42,19 @@ public:
     // The worst-case time-complexity of this method should be O(log(N)) for a Quadtree with N leaf nodes
     // Your set should contain the AABB and the Metadata of all objects in the given region.
     // https://stackoverflow.com/q/62869571
-    std::unordered_set<std::pair<AxisAlignedBoundingBox, Metadata>*> query_region(const AxisAlignedBoundingBox& container);
+    std::unordered_set<MetaBoundingBox<Metadata>> query_region(const AxisAlignedBoundingBox& container);
 
     AxisAlignedBoundingBox getBounds();
 
     // TODO: You should decide the return type for this method
     // This method should return an iterator that runs over every element in the quadtree.
-    auto begin();
+    QuadtreeIterator<Metadata> begin();
 
     // TODO: You should decide the return type for this method
     // This method should return an iterator pointing one past the last element in the quadtree.
     // When iterating from begin() to end(), we should visit all elements in the quadtree.
     // There is no requirement with regards to the order that you visit these elements in.
-    auto end();
+    QuadtreeIterator<Metadata> end();
 };
 
 #endif //LABO_7_QUADTREE_H
