@@ -17,8 +17,7 @@ add_executable(TestSuite
         test/main.cpp
         test/quadtree.cpp
         test/axis_aligned_bounding_box.cpp
-        test/meta_bounding_box.cpp
-        test/project_test.cpp)
+        test/meta_bounding_box.cpp)
 
 target_include_directories(TestSuite PUBLIC include/)
 

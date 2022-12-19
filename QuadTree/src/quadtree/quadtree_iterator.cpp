@@ -26,7 +26,7 @@ bool QuadtreeIterator<Metadata>::operator!=(const QuadtreeIterator &qit) {
 }
 
 template<typename Metadata>
-QuadtreeIterator<Metadata>::QuadtreeIterator(std::unordered_set<MetaBoundingBox<Metadata>> boxes, std::size_t index) : boxes() {
+QuadtreeIterator<Metadata>::QuadtreeIterator(std::unordered_set<MetaBoundingBox<Metadata>> boxes, std::size_t index) {
     std::copy(boxes.begin(), boxes.end(), std::back_inserter(this->boxes));
     this->index = index;
 }

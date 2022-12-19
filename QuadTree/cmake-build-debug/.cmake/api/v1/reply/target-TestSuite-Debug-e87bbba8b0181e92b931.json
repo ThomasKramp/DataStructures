@@ -1,9 +1,11 @@
 {
-	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "libQuadLib.a"
+			"path" : "TestSuite.exe"
+		},
+		{
+			"path" : "TestSuite.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -11,8 +13,8 @@
 	{
 		"commands" : 
 		[
-			"add_library",
-			"target_compile_options",
+			"add_executable",
+			"target_link_libraries",
 			"target_include_directories"
 		],
 		"files" : 
@@ -27,19 +29,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 7,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 28,
+				"line" : 24,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 13,
+				"line" : 22,
 				"parent" : 0
 			}
 		]
@@ -94,9 +96,40 @@
 			]
 		}
 	],
-	"id" : "QuadLib::@6890427a1f51a3e7e1df",
-	"name" : "QuadLib",
-	"nameOnDisk" : "libQuadLib.a",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "QuadLib::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "TestSuite::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "libQuadLib.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "TestSuite",
+	"nameOnDisk" : "TestSuite.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -120,27 +153,27 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/quadtree/quadtree.cpp",
+			"path" : "test/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/quadtree/axis_aligned_bounding_box.cpp",
+			"path" : "test/quadtree.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/quadtree/meta_bounding_box.cpp",
+			"path" : "test/axis_aligned_bounding_box.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/quadtree/quadtree_iterator.cpp",
+			"path" : "test/meta_bounding_box.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "STATIC_LIBRARY"
+	"type" : "EXECUTABLE"
 }

@@ -9,8 +9,6 @@
 #include <unordered_set>
 #include "meta_bounding_box.h"
 
-// TODO: Vraag aan de prof
-//       Heeft te  maken met de begin() & end() methodes
 template <typename Metadata>
 class QuadtreeIterator {
 private:
