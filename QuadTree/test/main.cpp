@@ -28,8 +28,8 @@ TEST_CASE("time_complexity_output" "[output]") {
         auto start = std::chrono::steady_clock::now();
         // Search boxes
         // Generate random float between 0 and 8
-        x = 4;//(float) std::rand() / RAND_MAX * 8;
-        y = 4;//(float) std::rand() / RAND_MAX * 8;
+        x = (float) std::rand() / RAND_MAX * 8;
+        y = (float) std::rand() / RAND_MAX * 8;
         auto boxes = quadTree.query_region(AxisAlignedBoundingBox(x, y, 2, 2));
         // Stop Clock
         auto end = std::chrono::steady_clock::now();

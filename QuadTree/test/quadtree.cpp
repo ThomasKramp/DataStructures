@@ -4,8 +4,6 @@
 
 #include "catch2/catch.hpp"
 #include "quadtree/quadtree.h"
-#include <chrono>
-#include <iomanip>
 #include <iostream>
 
 // TODO: Unit test edge cases
