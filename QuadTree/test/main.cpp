@@ -4,14 +4,14 @@
 #include "quadtree/quadtree.h"
 
 TEST_CASE("time_complexity_output" "[output]") {
-    int loops = 1024;
+    int loops = 16;
     float x = 0, y = 0, w = 0, h = 0;
     std::srand((unsigned)time(NULL));
 
     for (int i = 1; i <= loops; i++) {
         // Create a quadtree
         AxisAlignedBoundingBox bounds = AxisAlignedBoundingBox(0, 0, 10, 10);
-        Quadtree<std::string> quadTree = Quadtree<std::string>(bounds, 3);
+        Quadtree<std::string> quadTree = Quadtree<std::string>(bounds, 8);
 
         for (int j = 1; j <= i; j++) {
             // Generate random float between 0 and 10
@@ -37,7 +37,7 @@ TEST_CASE("time_complexity_output" "[output]") {
         std::chrono::duration<double> diff = end - start;
         // std::cout << "Time elapsed: " << std::setprecision(5) << diff.count() * 1000 << " ms\n";
         // std::cout << "Amount of boxes: " << i << " \n";
-        std::cout << std::setprecision(5) << diff.count() * 1000 << "," << i << std::endl;
+        std::cout << i << "," << std::setprecision(5) << diff.count() * 1000 << std::endl;
 
         // for(auto box: boxes){ std::cout << static_cast<std::string>(box) << "\n"; }
     }

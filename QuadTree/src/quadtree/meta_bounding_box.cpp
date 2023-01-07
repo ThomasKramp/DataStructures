@@ -40,12 +40,16 @@ namespace std { // add to the std library
         auto center_y = (box.get_y() + box.get_height()) / 2;
         auto center_z = std::sqrt(std::pow(center_x, 2) + std::pow(center_y, 2));
 
+        // Give y values a higher weight
+        auto weight = box.get_x() + box.get_width() + (box.get_y() + box.get_height()) * 16;
+
         // Create hashers
         auto doubleHasher = std::hash<double>();
         auto metaHasher = std::hash<Metadata>();
+        metaHasher(key.getData());
 
         // Combine hashes
-        H = H xor doubleHasher(center_z) xor metaHasher(key.getData());
+        H = H xor doubleHasher(center_z) xor doubleHasher(weight); //xor metaHasher(key.getData());
         return H;
     }
 }

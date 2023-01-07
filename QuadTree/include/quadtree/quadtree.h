@@ -46,11 +46,11 @@ public:
 
     AxisAlignedBoundingBox getBounds();
 
-    // TODO: You should decide the return type for this method
+    // You should decide the return type for this method
     // This method should return an iterator that runs over every element in the quadtree.
     QuadtreeIterator<Metadata> begin();
 
-    // TODO: You should decide the return type for this method
+    // You should decide the return type for this method
     // This method should return an iterator pointing one past the last element in the quadtree.
     // When iterating from begin() to end(), we should visit all elements in the quadtree.
     // There is no requirement with regards to the order that you visit these elements in.
