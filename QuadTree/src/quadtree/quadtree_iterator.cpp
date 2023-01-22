@@ -11,6 +11,12 @@ QuadtreeIterator<Metadata> &QuadtreeIterator<Metadata>::operator++() {
 }
 
 template<typename Metadata>
+QuadtreeIterator<Metadata> &QuadtreeIterator<Metadata>::operator--() {
+    this->index--;
+    return *this;
+}
+
+template<typename Metadata>
 MetaBoundingBox<Metadata>* QuadtreeIterator<Metadata>::operator*() {
     return (this->boxes.data() + this->index);
 }

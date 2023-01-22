@@ -130,6 +130,13 @@ build CMakeFiles/TestSuite.dir/test/meta_bounding_box.cpp.obj: CXX_COMPILER__Tes
   OBJECT_DIR = CMakeFiles\TestSuite.dir
   OBJECT_FILE_DIR = CMakeFiles\TestSuite.dir\test
 
+build CMakeFiles/TestSuite.dir/test/quadtree_iterator.cpp.obj: CXX_COMPILER__TestSuite_Debug C$:/Users/Thoma/Documents/UA/Semester$ 1/Data$ Structures/Labo/Labo$ 7/DataStructures/QuadTree/test/quadtree_iterator.cpp || cmake_object_order_depends_target_TestSuite
+  DEP_FILE = CMakeFiles\TestSuite.dir\test\quadtree_iterator.cpp.obj.d
+  FLAGS = -g -Wall -Wextra -Wpedantic -Werror
+  INCLUDES = -I"C:/Users/Thoma/Documents/UA/Semester 1/Data Structures/Labo/Labo 7/DataStructures/QuadTree/include"
+  OBJECT_DIR = CMakeFiles\TestSuite.dir
+  OBJECT_FILE_DIR = CMakeFiles\TestSuite.dir\test
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TestSuite
@@ -138,7 +145,7 @@ build CMakeFiles/TestSuite.dir/test/meta_bounding_box.cpp.obj: CXX_COMPILER__Tes
 #############################################
 # Link the executable TestSuite.exe
 
-build TestSuite.exe: CXX_EXECUTABLE_LINKER__TestSuite_Debug CMakeFiles/TestSuite.dir/test/main.cpp.obj CMakeFiles/TestSuite.dir/test/quadtree.cpp.obj CMakeFiles/TestSuite.dir/test/axis_aligned_bounding_box.cpp.obj CMakeFiles/TestSuite.dir/test/meta_bounding_box.cpp.obj | libQuadLib.a || libQuadLib.a
+build TestSuite.exe: CXX_EXECUTABLE_LINKER__TestSuite_Debug CMakeFiles/TestSuite.dir/test/main.cpp.obj CMakeFiles/TestSuite.dir/test/quadtree.cpp.obj CMakeFiles/TestSuite.dir/test/axis_aligned_bounding_box.cpp.obj CMakeFiles/TestSuite.dir/test/meta_bounding_box.cpp.obj CMakeFiles/TestSuite.dir/test/quadtree_iterator.cpp.obj | libQuadLib.a || libQuadLib.a
   FLAGS = -g
   LINK_LIBRARIES = libQuadLib.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TestSuite.dir

@@ -2,6 +2,7 @@
 // Created by Thoma on 07/12/2022.
 //
 
+#include <iostream>
 #include "catch2/catch.hpp"
 #include "quadtree/axis_aligned_bounding_box.h"
 
@@ -89,7 +90,12 @@ TEST_CASE("Compare 2 aabb's (different)"  "[operator] [comparison]") {
     CHECK_FALSE(box1 == box2);
 }
 
-// TODO: add toString test case
-TEST_CASE("Box to string"  "[operator] [toString]") {
-
+TEST_CASE("aabb to string"  "[operator] [toString]") {
+    double x = 1, y = 2, w = 3, h = 4;
+    AxisAlignedBoundingBox box = AxisAlignedBoundingBox(x, y, w, h);
+    // std::cout << static_cast<std::string>(box) << "\n";
+    std::string boxString = "x: " + std::to_string(x) + " y: " + std::to_string(y)
+            + " w: " + std::to_string(w) + " h: " + std::to_string(h);
+    // std::cout << boxString << "\n";
+    CHECK(boxString.compare(static_cast<std::string>(box)) == 0);
 }

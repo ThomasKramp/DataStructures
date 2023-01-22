@@ -3,6 +3,7 @@
 //
 
 #include <valarray>
+#include <iostream>
 #include "quadtree/meta_bounding_box.h"
 
 template<typename Metadata>
@@ -49,6 +50,8 @@ namespace std { // add to the std library
         metaHasher(key.getData());
 
         // Combine hashes
+        // std::cout << doubleHasher(center_z) << "\n";
+        // std::cout << doubleHasher(weight) << "\n";
         H = H xor doubleHasher(center_z) xor doubleHasher(weight); //xor metaHasher(key.getData());
         return H;
     }

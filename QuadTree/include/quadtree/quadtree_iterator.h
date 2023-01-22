@@ -18,10 +18,10 @@ public:
     QuadtreeIterator(std::unordered_set<MetaBoundingBox<Metadata>> boxes, std::size_t index);
 
     QuadtreeIterator& operator++();
+    QuadtreeIterator& operator--();
     MetaBoundingBox<Metadata>* operator*();
     bool operator==(const QuadtreeIterator& qit);
     bool operator!=(const QuadtreeIterator& qit);
 };
-
 
 #endif //LABO_7_QUADTREE_ITERATOR_H
